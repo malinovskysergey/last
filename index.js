@@ -6,19 +6,17 @@ const app = express();
 const mariadb = require('mariadb');
 const cors = require('cors');
 const compression = require('compression');
-
-require('dotenv').config(); // Load environment variables
+ 
 app.use(cors());
 app.use(express.json());
 app.use(compression());
 
 const pool = mariadb.createPool({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT || 3306,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  connectionLimit: 5,
+  host: 'railway',
+  user: 'root',
+  password: 'ZzPuNtDLOqxBEnEyaUfLPfbsmHDYucRk',
+  database: 'railway',
+  connectionLimit: 5
 });
 
 // Existing /api/items endpoint
@@ -85,7 +83,7 @@ app.get('/api/persons/:id', async (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3306;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
