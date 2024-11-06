@@ -8,7 +8,7 @@ const cors = require('cors');
 const compression = require('compression');
  
 app.use(cors({
-  origin: 'https://papaya-puffpuff-cfc312.netlify.app/',
+  origin: 'https://papaya-puffpuff-cfc312.netlify.app',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true,
 }));
@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(compression());
 
 const pool = mariadb.createPool({
-  host: 'railway',
+  host: 'mysql.railway.internal',
   user: 'root',
   password: 'ZzPuNtDLOqxBEnEyaUfLPfbsmHDYucRk',
   database: 'railway',
